@@ -3,7 +3,10 @@
 Source of truth for what is set in Squarespace. Update this file in the same commit as any
 change made to the live site, so git history keeps the previous value.
 
-Last checked: 2026-10-15 (baseline, before any changes).
+Last checked: 2026-10-15.
+
+Squarespace title format appends " — YCC Photography" to every page's title (incl. SEO titles),
+so SEO title fields hold only the page-specific part.
 
 ## Site-wide
 
@@ -17,12 +20,12 @@ Last checked: 2026-10-15 (baseline, before any changes).
 
 ## Pages
 
-| Page | URL | Browser title | SEO description |
-|---|---|---|---|
-| Home | `/` | YCC Photography | *(empty)* |
-| Gallery | `/gallery` | Gallery — YCC Photography | *(empty)* |
-| About | `/about` | About — YCC Photography | *(empty)* |
-| Contact | `/contact` | Contact — YCC Photography | *(empty)* |
+| Page | URL | SEO title field | Browser title (rendered) | SEO description |
+|---|---|---|---|---|
+| Home | `/` | *(empty)* | YCC Photography | *(empty)* |
+| Gallery | `/gallery` | Golf Course Photography Gallery | Golf Course Photography Gallery — YCC Photography | *(empty)* |
+| About | `/about` | *(empty)* | About — YCC Photography | *(empty)* |
+| Contact | `/contact` | *(empty)* | Contact — YCC Photography | *(empty)* |
 
 ## Headings
 
