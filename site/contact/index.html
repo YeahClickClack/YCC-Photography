@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — YCC Photography</title>
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<header class="site-header ">
+  <a class="site-title" href="../">YCC Photography</a>
+  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"></button>
+  <nav class="site-nav">
+    <a href="../gallery/">Gallery</a>
+    <a href="../about/">About</a>
+    <a href="../contact/" aria-current="page">Contact</a>
+  </nav>
+</header>
+<main>
+  <section class="split">
+    <div>
+      <h1>Initiate Your Vision: Submit an Inquiry</h1>
+      <p class="intro">I’d love to hear about your course. Tell me a bit about the property and what you have in mind using the form below, and I’ll get back to you to discuss the project.</p>
+      <!-- Mirror only: on Squarespace this is a Form Block. Submitting here does nothing. -->
+      <form class="form" onsubmit="event.preventDefault(); alert('Preview only: this form is not connected.');">
+        <div>
+          <label>Name</label>
+          <div class="row">
+            <label>First Name <span class="req">(required)</span><input name="first" required></label>
+            <label>Last Name <span class="req">(required)</span><input name="last" required></label>
+          </div>
+        </div>
+        <label>Email <span class="req">(required)</span><input type="email" name="email" required></label>
+        <label>Message <span class="req">(required)</span><textarea name="message" required></textarea></label>
+        <button class="btn-solid" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="split__media">
+      <img src="https://images.squarespace-cdn.com/content/v1/6aaeff2d84d71d3a0b5b6c50/95c6b4d7-6281-4192-9c21-17323780ef02/Aberdovey.jpg?format=1500w" alt="">
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <h4><a href="mailto:nick@yccphotography.com">nick@yccphotography.com</a></h4>
+  <div class="social">
+    <a href="http://instagram.com/yeahclickclack" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg></a>
+    <a href="https://x.com/YeahClickClack" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 1.2h3.7l-8 9.2L24 22.8h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9zm-1.3 19.4h2L6.5 3.2H4.3l13.3 17.4z"/></svg></a>
+    <a href="mailto:nick@yccphotography.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.5l10 6 10-6V6H2zm20 2.8-10 6-10-6V18h20V8.8z"/></svg></a>
+  </div>
+</footer>
+<script>
+  var t = document.querySelector('.menu-toggle'), n = document.querySelector('.site-nav');
+  t.addEventListener('click', function () {
+    var open = n.classList.toggle('is-open');
+    t.setAttribute('aria-expanded', open);
+  });
+</script>
+</body>
+</html>
