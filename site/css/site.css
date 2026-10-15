@@ -3,7 +3,7 @@
 
 :root {
   --font-heading: "Libre Baskerville", Georgia, serif;
-  --font-body: "Almarai", Helvetica, Arial, sans-serif;
+  --font-body: "Libre Baskerville", Georgia, serif;
   --text: #1c1c1c;
   --black: #000;
   --white: #fff;
@@ -18,8 +18,8 @@ html, body { margin: 0; padding: 0; }
 
 body {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--black);
   background: var(--white);
 }
@@ -37,6 +37,7 @@ h1, h2, h3, h4 {
 h1 { font-size: clamp(2.4rem, 5.2vw, 4.15rem); line-height: 1.056; letter-spacing: -0.02em; }
 h2 { font-size: clamp(2rem, 3.6vw, 2.89rem); line-height: 1.11; letter-spacing: -0.02em; }
 h3 { font-size: clamp(1.4rem, 2vw, 1.75rem); line-height: 1.2; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(2rem, 3.6vw, 2.89rem); line-height: 1.11; }
 h4 { font-size: clamp(1.2rem, 2vw, 1.63rem); line-height: 1.17; letter-spacing: -0.02em; color: var(--black); }
 
 /* ---------- Header ---------- */
@@ -68,7 +69,7 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.63rem); line-height: 1.17; letter-spacing: 
 }
 .site-nav { display: flex; gap: 1.6em; }
 .site-nav a {
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
 }
 .site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
@@ -104,29 +105,93 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.63rem); line-height: 1.17; letter-spacing: 
   text-align: center;
   padding: 1.25rem var(--gutter) 0;
 }
-.tagline h3 { margin-bottom: 1.25rem; }
-.btn-outline {
+.tagline h1 { font-size: clamp(1.4rem, 2vw, 1.75rem); line-height: 1.3; letter-spacing: -0.02em; margin: 0 auto; max-width: 900px; }
+.btn-outline, .btn-solid {
   display: inline-block;
-  padding: 0.6em 1.5em;
+  padding: 0.9em 2.2em;
   border: 1px solid var(--black);
   border-radius: 999px;
-  font-size: 14px;
+  font: 14px var(--font-body);
   text-decoration: none;
+  cursor: pointer;
 }
+.btn-outline:hover { background: var(--black); color: var(--white); }
 
-/* ---------- Gallery (single column, captions below) ---------- */
+/* ---------- Gallery (masonry grid + lightbox) ---------- */
+.page-intro {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 0;
+}
+.page-intro h1 { margin-bottom: 0.3em; }
+.page-intro p { margin: 0; color: #555; font-style: italic; }
+
 .gallery {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem var(--gutter) 0;
-  display: grid;
-  gap: 2.5rem;
+  columns: 3 320px;
+  column-gap: 1.5rem;
 }
-.gallery figure { margin: 0; }
-.gallery img { width: 100%; }
-.gallery figcaption {
-  margin-top: 0.9rem;
-  font-size: 14.3px;
+.gallery figure { margin: 0 0 1.75rem; break-inside: avoid; }
+.gallery a { display: block; overflow: hidden; cursor: zoom-in; }
+.gallery img { width: 100%; transition: transform 0.4s ease, opacity 0.4s ease; }
+.gallery a:hover img { transform: scale(1.02); opacity: 0.92; }
+.gallery figcaption, .featured span {
+  margin-top: 0.6rem;
+  font-size: 13px;
+  font-style: italic;
+  color: #333;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.94);
+  color: #f2f2f2;
+}
+.lightbox[hidden] { display: none; }
+.lightbox figure { margin: 0; text-align: center; }
+.lightbox img { max-width: 88vw; max-height: 84vh; width: auto; margin: 0 auto; }
+.lightbox figcaption { margin-top: 0.9rem; font-style: italic; font-size: 14px; }
+.lightbox button {
+  position: absolute;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: 300 2.6rem/1 var(--font-heading);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  opacity: 0.75;
+}
+.lightbox button:hover, .lightbox button:focus-visible { opacity: 1; }
+.lb-close { top: 1rem; right: 1rem; }
+.lb-prev { left: 0.5rem; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 0.5rem; top: 50%; transform: translateY(-50%); }
+
+/* ---------- Home: selected work + calls to action ---------- */
+.featured {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.featured a { text-decoration: none; }
+.featured img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: opacity 0.3s ease; }
+.featured a:hover img { opacity: 0.88; }
+.featured span { display: block; }
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2.5rem var(--gutter) 1rem;
 }
 
 /* ---------- Two-column pages (About, Contact) ---------- */
@@ -155,17 +220,10 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.63rem); line-height: 1.17; letter-spacing: 
   font: inherit;
 }
 .form textarea { min-height: 110px; resize: vertical; }
-.btn-solid {
-  justify-self: start;
-  padding: 0.9em 2.2em;
-  border: 0;
-  border-radius: 999px;
-  background: var(--black);
-  color: #fafafa;
-  font: inherit;
-  cursor: pointer;
-}
-.intro { font-size: 14px; max-width: 520px; }
+.btn-solid { background: var(--black); color: #fafafa; }
+.btn-solid:hover { background: #333; }
+.form .btn-solid { justify-self: start; }
+.intro { font-size: 14px; max-width: 520px; color: #333; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 767px) {
@@ -205,5 +263,7 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.63rem); line-height: 1.17; letter-spacing: 
   .menu-toggle::after { bottom: 5px; }
   .hero { height: 70vh; }
   .split { grid-template-columns: 1fr; }
+  .featured { grid-template-columns: 1fr 1fr; }
+  .lightbox img { max-width: 100vw; }
   .form .row { grid-template-columns: 1fr 1fr; }
 }

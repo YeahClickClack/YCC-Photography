@@ -1,3 +1,23 @@
 /* Custom CSS for Squarespace (Website → Pages → Custom Code → Custom CSS).
    Keep this file identical to what is pasted in Squarespace.
-   Baseline: no custom CSS applied yet. */
+   Status: DRAFT for round 1 — not yet pasted. Selectors to be confirmed
+   against the live page once the Gallery section exists. */
+
+/* Italic serif captions, matching the mirror (site/css/site.css). */
+.gallery-caption-content,
+.gallery-caption-content p,
+.sqsrte-small {
+  font-style: italic;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Softer hover on gallery thumbnails. */
+.gallery-masonry-item img,
+.gallery-grid-item img {
+  transition: opacity 0.4s ease;
+}
+.gallery-masonry-item:hover img,
+.gallery-grid-item:hover img {
+  opacity: 0.92;
+}
